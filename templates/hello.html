@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Flask app</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+<head>
+    <title>Flask app</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
 
-    <body>
-        <div class='header'>
-            {{ name }}
-        </div>
+<body>
+    <div class='banner'>
+        Banner
+        <p>You can do it</p>
+    </div>
+    <div id='TopHeader' class='header'>
+        {{ name }}
+    </div>
+    <div class='main'>
         <div class='splash'>
-            splash
+            <h1>splash</h1>
+            <p>my little description, for some example landing</p>
+            <p>using flask</p>
         </div>
-        <div class='main'>
+        <div class='content'>
             body
         </div>
-        <div class='footer'>
-            footer
-        </div>
-    </body>
+    </div>
+    <div class='footer'>
+        footer
+    </div>
 
+<script>
+
+window.onscroll = function() {maintainHeaderOnTop()}
+
+var headerDiv = document.getElementById('TopHeader');
+var sticky = headerDiv.offsetTop;
+
+function maintainHeaderOnTop(){
+    if (window.pageYOffset > sticky) {
+        headerDiv.classList.add("sticky");
+    } else {
+        headerDiv.classList.remove("sticky");
+    }
+}
+
+</script>
+
+
+</body>
 </html>
