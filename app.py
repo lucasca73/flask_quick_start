@@ -1,4 +1,4 @@
-from flask import Flask, escape
+from flask import Flask, escape, render_template, url_for
 
 app = Flask(__name__)
 
@@ -13,3 +13,7 @@ def hello():
 @app.route('/user/<username>')
 def user(username):
     return 'Hello %s' % escape(username)
+
+@app.route('/render/<name>')
+def render(name=None):
+    return render_template('hello.html', name=name)
